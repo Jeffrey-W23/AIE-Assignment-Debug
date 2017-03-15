@@ -73,6 +73,7 @@ int main()
 
 				if (!swarm[0]->isAlive()) // if the zergling dies, it is removed from the swarm
 				{
+					delete swarm[0];
 					swarm.erase(swarm.begin());
 					cout << "The zergling target dies" << endl;
 				}
@@ -83,14 +84,16 @@ int main()
 		{
 			if (marineAlive(squad))
 			{
+				// each zergling will attack the first marine in the swarm
 				cout << "A zergling attacks for " << swarm[i]->attack() << " damage." << endl;
 
 				int damage = swarm[i]->attack();
 
 				squad[0]->takeDamage(damage);
 
-				if (!squad[0]->isAlive())
+				if (!squad[0]->isAlive()) // if the marine dies, it is removed from the squad
 				{
+					delete squad[0];
 					squad.erase(squad.begin());
 					cout << "The marine succumbs to his wounds." << endl;
 				}
@@ -116,22 +119,15 @@ int main()
 		cout << "Error!" << endl;
 		system("Pause");
 	}
+
+	// delete vectors
+	for (size_t i = 0; i < swarmSize; i++)
+	{
+		delete swarm[i];
+	}
+
+	for (size_t i = 0; i < squadSize; i++)
+	{
+		delete squad[i];
+	}
 }
-
-
-
-
-
-
-
-// NOTES:
-// find every last bug
-// make sure the game makes sense eg. attacks are fair.
-//useless code in places
-// refactor whole thing, add more classes
-//split main function up
-// crate more function and split into classes in the main
-// improve code, make more readble
-// does the game make sense
-
-// Change to an array
