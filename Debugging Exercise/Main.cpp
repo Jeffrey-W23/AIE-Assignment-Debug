@@ -17,6 +17,7 @@
 #include <vector>
 #include "Marine.h"
 #include "Zergling.h"
+#include <crtdbg.h>
 
 using std::vector;
 using std::cout;
@@ -36,6 +37,8 @@ bool zerglingAlive(vector<Zergling*> swarm)
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	vector<Marine*> squad;
 	vector<Zergling*> swarm;
 
