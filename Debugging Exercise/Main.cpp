@@ -124,12 +124,12 @@ int main()
 	}
 
 	// delete vectors
-	for (size_t i = 0; i < swarmSize; i++)
+	for (size_t i = 0; i < swarm.size(); i++)
 	{
 		delete swarm[i];
 	}
 
-	for (size_t i = 0; i < squadSize; i++)
+	for (size_t i = 0; i < squad.size(); i++)
 	{
 		delete squad[i];
 	}
